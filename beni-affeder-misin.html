@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>Beni Affeder misin?</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #8e44ad, #3498db);
+      overflow: hidden;
+      font-family: 'Arial', sans-serif;
+      text-align: center;
+      color: white;
+    }
+
+    .heart {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: pink;
+      transform: rotate(45deg);
+      animation: float 10s linear infinite;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: "";
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: pink;
+      border-radius: 50%;
+    }
+
+    .heart::before {
+      top: -10px;
+      left: 0;
+    }
+
+    .heart::after {
+      left: -10px;
+      top: 0;
+    }
+
+    @keyframes float {
+      from {
+        transform: translateY(100vh) rotate(45deg);
+        opacity: 1;
+      }
+      to {
+        transform: translateY(-10vh) rotate(45deg);
+        opacity: 0;
+      }
+    }
+
+    .content {
+      position: relative;
+      top: 30vh;
+    }
+
+    .emoji {
+      font-size: 100px;
+    }
+
+    .question {
+      font-size: 30px;
+      margin: 20px 0;
+    }
+
+    .buttons {
+      position: relative;
+    }
+
+    .btn {
+      padding: 10px 20px;
+      font-size: 18px;
+      margin: 10px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    .yes {
+      background-color: #2ecc71;
+      color: white;
+    }
+
+    .no {
+      background-color: #e74c3c;
+      color: white;
+      position: absolute;
+      top: 200px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .heart-burst {
+      position: absolute;
+      font-size: 24px;
+      animation: burst 1s ease-out forwards;
+    }
+
+    @keyframes burst {
+      100% {
+        transform: translate(var(--x), var(--y)) scale(0.5);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="content">
+    <div class="emoji">💐</div>
+    <div class="question">Beni affeder misin?</div>
+    <div class="buttons">
+      <button class="btn yes" onclick="showThanks()">Evet</button>
+      <button class="btn no" onclick="moveNo(this)">Hayır</button>
+    </div>
+  </div>
+
+  <script>
+    // Kalpler oluştur
+    for (let i = 0; i < 50; i++) {
+      const heart = document.createElement("div");
+      heart.className
